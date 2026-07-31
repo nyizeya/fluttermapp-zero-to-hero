@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo_app/data/notifiers.dart';
 import 'package:flutter_demo_app/views/pages/home_page.dart';
 import 'package:flutter_demo_app/views/pages/profile_page.dart';
+import 'package:flutter_demo_app/views/pages/settings_page.dart';
 import 'package:flutter_demo_app/views/widgets/navbar_widget.dart';
 
 List<Widget> pages = [const HomePage(), const ProfilePage()];
@@ -27,12 +28,23 @@ class WidgetTree extends StatelessWidget {
               },
             ),
           ),
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const SettingsPage(title: 'Settings'),
+                ),
+              );
+            },
+            icon: const Icon(Icons.settings),
+          ),
         ],
       ),
       body: ValueListenableBuilder(
         valueListenable: selectedPageNotifier,
-        builder: (context, selectedPage, child) =>
-            pages.elementAt(selectedPage),
+        builder: (context, selectedPage, child) {
+          return pages.elementAt(selectedPage);
+        },
       ),
       bottomNavigationBar: const NavbarWidget(),
     );
