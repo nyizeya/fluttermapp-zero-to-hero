@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo_app/data/constants.dart';
 import 'package:flutter_demo_app/views/widgets/hero_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -18,7 +19,16 @@ class HomePage extends StatelessWidget {
             child: const Card(
               child: Padding(
                 padding: EdgeInsets.all(20.0),
-                child: Text('Hello Card Demo'),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Basic Layout', style: KTextStyle.titleTealText),
+                    Text(
+                      'The description of this',
+                      style: KTextStyle.descriptionText,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
