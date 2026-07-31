@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:flutter_demo_app/data/constants.dart';
-import 'package:flutter_demo_app/views/widgets/hero_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          const HeroWidget(),
+          Lottie.asset('assets/lotties/3D-Home.json'),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 20),
             width: double.infinity,
