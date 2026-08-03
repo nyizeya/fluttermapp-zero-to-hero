@@ -9,65 +9,76 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Lottie.asset(
-              'assets/lotties/lines.json',
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: 450,
-            ),
-
-            const FittedBox(
-              child: Text(
-                'Demo App',
-                style: TextStyle(
-                  fontSize: 50.0,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 50.0,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Lottie.asset(
+                  'assets/lotties/lines.json',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 400,
                 ),
-              ),
+
+                const SizedBox(height: 60.0),
+
+                const FittedBox(
+                  child: Text(
+                    'Demo App',
+                    style: TextStyle(
+                      fontSize: 50.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 50.0,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 10.0),
+
+                FilledButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            const LoginPage(title: 'Register'),
+                      ),
+                    );
+                  },
+
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Colors.teal,
+                    minimumSize: const Size(double.infinity, 40),
+                  ),
+
+                  child: const Text(
+                    'Get Started',
+                    style: TextStyle(color: Colors.white, fontSize: 18.0),
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const LoginPage(title: 'Login'),
+                      ),
+                    );
+                  },
+
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 40),
+                  ),
+
+                  child: const Text('Login', style: TextStyle(fontSize: 18.0)),
+                ),
+              ],
             ),
-
-            const SizedBox(height: 10.0),
-
-            FilledButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const WidgetTree()),
-                );
-              },
-
-              style: FilledButton.styleFrom(
-                backgroundColor: Colors.teal,
-                minimumSize: const Size(double.infinity, 40),
-              ),
-
-              child: const Text(
-                'Get Started',
-                style: TextStyle(color: Colors.white, fontSize: 18.0),
-              ),
-            ),
-
-            const SizedBox(height: 10),
-
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const LoginPage()),
-                );
-              },
-
-              style: TextButton.styleFrom(
-                minimumSize: const Size(double.infinity, 40),
-              ),
-
-              child: const Text('Login', style: TextStyle(fontSize: 18.0)),
-            ),
-          ],
+          ),
         ),
       ),
     );
