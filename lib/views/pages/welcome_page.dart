@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo_app/views/pages/login_page.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_demo_app/views/widget_tree.dart';
 
@@ -40,22 +41,31 @@ class WelcomePage extends StatelessWidget {
                 );
               },
 
-              style: FilledButton.styleFrom(backgroundColor: Colors.teal),
+              style: FilledButton.styleFrom(
+                backgroundColor: Colors.teal,
+                minimumSize: const Size(double.infinity, 40),
+              ),
 
               child: const Text(
                 'Get Started',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 18.0),
               ),
             ),
+
+            const SizedBox(height: 10),
 
             TextButton(
               onPressed: () {
                 Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const WidgetTree()),
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
                 );
               },
 
-              child: const Text('Login'),
+              style: TextButton.styleFrom(
+                minimumSize: const Size(double.infinity, 40),
+              ),
+
+              child: const Text('Login', style: TextStyle(fontSize: 18.0)),
             ),
           ],
         ),
