@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo_app/views/widget_tree.dart';
 import 'package:flutter_demo_app/views/widgets/hero_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.title});
@@ -19,7 +20,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    print("Init state triggered");
     super.initState();
   }
 
@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                HeroWidget(title: widget.title),
+                Lottie.asset('assets/lotties/3D-Home.json'),
 
                 const SizedBox(height: 20.0),
 
