@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo_app/views/pages/expended_flexible_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key, required this.title});
@@ -130,7 +131,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: Container(
                   height: 50,
                   width: double.infinity,
-                  color: Colors.white12,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black12, width: 1.0),
+                  ),
                 ),
                 onTap: () {
                   print("I just taped on it");
@@ -140,22 +143,25 @@ class _SettingsPageState extends State<SettingsPage> {
               const SizedBox(height: 20.0),
 
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ExpendedFlexiblePage(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.teal,
                   foregroundColor: Colors.white,
                 ),
-                child: const Text('Elevated Button'),
+                child: const Text('Show expended and flexible'),
               ),
 
               const SizedBox(height: 20.0),
 
               FilledButton(
                 onPressed: () {},
-                style: FilledButton.styleFrom(
-                  iconSize: 25,
-                  iconColor: Colors.black,
-                ),
+                style: FilledButton.styleFrom(iconSize: 25),
                 child: const Icon(Icons.add),
               ),
 
